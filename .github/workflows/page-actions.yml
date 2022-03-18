@@ -33,6 +33,7 @@ jobs:
           git config --global user.email "282281884@qq.com"
           git config --global user.name "Kaka Chake"
           npm install hexo-cli -g
+          npm install --save hexo-deployer-git
           npm install
 
       - name: Deploy
