@@ -43,7 +43,7 @@
           <span>0%</span>
         </div>
       {%- endif %}
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=250 
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=255 
           src="https://music.163.com/outchain/player?type=0&id=7238513086&auto=1&height=430&bg=e8e8e8">
       </iframe>
     </div>
