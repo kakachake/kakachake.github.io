@@ -11,6 +11,21 @@
 {%- endif %}
 
 <div class="copyright">
+  <script>
+  window.onload = function() {
+    var show = document.getElementById("show");
+    setInterval(function() {
+      var time = new Date();
+      // 程序计时的月从0开始取值后+1
+      var m = time.getMonth() + 1;
+      //根据本身博客的建立时间更改数值
+      var t = "提示内容"+(time.getFullYear()-2017) + "年" + (m-3) + "月"
+      + time.getDate() + "天 " + time.getHours() + "时"
+      + time.getMinutes() + "分" + time.getSeconds() + "秒";
+      show.innerHTML = t;
+    }, 1000);
+  };
+</script>
   {% set copyright_year = date(null, 'YYYY') %}
   &copy; {% if theme.footer.since and theme.footer.since != copyright_year %}{{ theme.footer.since }} – {% endif %}
   <span itemprop="copyrightYear">{{ copyright_year }}</span>
