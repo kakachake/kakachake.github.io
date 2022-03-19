@@ -2,6 +2,7 @@
 title: webpack配置示例
 date: 2022-03-19 15:59:40
 tags: webpack
+categories: webpack
 ---
 
 ## webpack 配置参考
