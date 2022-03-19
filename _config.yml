@@ -105,3 +105,8 @@ deploy:
   type: git
   repository: git@github.com:kakachake/kakachake.github.io.git
   branch: gh-pages
+
+# Runing Time
+running_time:
+  enable: true
+  create_time: "18/03/2022 17:38:00" #此处修改你的建站时间或者网站上线时间

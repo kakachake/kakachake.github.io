@@ -11,21 +11,27 @@
 {%- endif %}
 
 <div class="copyright">
-  <script>
-  window.onload = function() {
-    var show = document.getElementById("show");
-    setInterval(function() {
-      var time = new Date();
-      // 程序计时的月从0开始取值后+1
-      var m = time.getMonth() + 1;
-      //根据本身博客的建立时间更改数值
-      var t = "提示内容"+(time.getFullYear()-2017) + "年" + (m-3) + "月"
-      + time.getDate() + "天 " + time.getHours() + "时"
-      + time.getMinutes() + "分" + time.getSeconds() + "秒";
-      show.innerHTML = t;
-    }, 1000);
-  };
-</script>
+  {%- if (theme.running_time && theme.running_time.enable && theme.running_time.create_time){ %}
+      <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+      <script>
+      function createtime() {
+          var now = new Date();
+          function createtime() {
+          var grt= new Date({%- theme.running_time.create_time %});//此处修改你的建站时间或者网站上线时间
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+          document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+      }
+  setInterval("createtime()",250);
+
+      </script>
+  {%- } %}
   {% set copyright_year = date(null, 'YYYY') %}
   &copy; {% if theme.footer.since and theme.footer.since != copyright_year %}{{ theme.footer.since }} – {% endif %}
   <span itemprop="copyrightYear">{{ copyright_year }}</span>
