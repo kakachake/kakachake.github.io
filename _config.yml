@@ -8,7 +8,7 @@ subtitle: ""
 description: ""
 keywords:
 author: Kaka Chake
-language: en
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -110,3 +110,9 @@ deploy:
 running_time:
   enable: true
   create_time: "03/18/2022 17:38:00" #此处修改你的建站时间或者网站上线时间
+
+excerpt:
+  depth: 1
+  excerpt_excludes: []
+  more_excludes: []
+  hideWholePostExcerpts: true
