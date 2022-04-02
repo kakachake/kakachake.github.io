@@ -139,8 +139,9 @@ export default function registerFormatTime(app) {
       console.dir(el);
       //获取用户传过来的format
       const format = bindings.value || "YYYY-MM-DD hh:mm:ss";
-      //获取时间戳
+      //获取元素上date-time的时间戳
       const timestamp = el.dataset.time;
+
       const date = timestamp.length === 10 ? +timestamp * 1000 : +timestamp;
       el.textContent = dayjs(date).format(format);
     },
