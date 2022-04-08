@@ -124,7 +124,8 @@ cover:
     - https://api.btstu.cn/sjbz/?lx=fengjing
     - https://api.btstu.cn/sjbz/?lx=suiji
     - https://api.btstu.cn/sjbz/?lx=dongman
-    - https://api.btstu.cn/sjbz/?lx=dongman
+    - https://api.btstu.cn/sjbz/?lx=fengjing
+    - https://api.btstu.cn/sjbz/?lx=suiji
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
