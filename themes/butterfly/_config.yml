@@ -120,7 +120,7 @@ cover:
   position: both
   # 當沒有設置cover時，默認的封面顯示
   default_cover:
-    - https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png
+    - https://api.btstu.cn/sjbz/?lx=dongman
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
