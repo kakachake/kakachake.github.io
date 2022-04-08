@@ -49,3 +49,33 @@ export const useMapGetters = (map) => {
   return getters;
 };
 ```
+
+## useMapper
+
+我们也可以将上述的函数封装成一个统一的 hook,由用户自行传入 mapper 函数：
+
+```javascript
+import { useStore } from "vuex";
+import { computed } from "vue";
+/**
+ *
+ * @param {*} mapper
+ * @param {*} mapperFn mapper函数：mapGetters|mapState
+ * @returns
+ */
+export const useMapper = (mapper, mapperFn) => {
+  //拿到store对象
+  const store = useStore();
+
+  //获取到mapState对应对象的function
+  const storeState = mapperFn(mapper);
+
+  //对数据进行转换，将每个函数传入到computed中
+  const states = {};
+  Object.keys(storeState).forEach((key) => {
+    //通过bind绑定一个含有$store的this
+    states[key] = computed(storeState[key].bind({ $store: store }));
+  });
+  return states;
+};
+```
