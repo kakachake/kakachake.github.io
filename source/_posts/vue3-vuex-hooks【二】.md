@@ -4,10 +4,10 @@ date: 2022-04-09 20:14:55
 tags: ["vue3", "vuex", "hooks"]
 ---
 
-书接上回，在实现 vuex hooks 的第一版中，未考虑到分模块的问题，这里更新下 useMapGetters 和 useMapState 两个函数
+书接上回，在实现 vuex hooks 的第一版中，未考虑到分模块的问题，这里更新下 useMapGetters 和 useMapState 两个函数，这次两个函数做的工作为格式化用户输入，对于没有传 moduleName，也就是没有命名空间的 mapper,直接使用 vuex 中的 mapState|mapGetters，对于传入 moduleName 的，则使用`createNamespacedHelpers`获取到 moduleName 这个命名空间的
+辅助函数。
 
-这里主要用到了 `createNamespacedHelpers` 这个函数，他可以通过使用 `createNamespacedHelpers` 创建基于某个命名空间辅助函数。
-它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数
+他可以通过使用 `createNamespacedHelpers` 创建基于某个命名空间辅助函数。它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数
 
 ## useMapGetters
 
