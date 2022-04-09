@@ -1,5 +1,5 @@
 ---
-title: 在vue3中使用vuex———hooks调用
+title: 在vue3中使用vuex——hooks调用
 date: 2022-04-08 19:32:28
 tags: ["vue3", "vuex", "hooks"]
 ---
