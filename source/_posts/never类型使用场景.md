@@ -1,9 +1,8 @@
 ---
-layout: typescript
 title: never类型使用场景
 date: 2022-04-11 21:13:43
 tags: ["typescript"]
-categories: "typescript"
+categories: ["typescript"]
 ---
 
 在之前学习 typescript 的时候看过 never 这个类型，并没有具体了解其使用场景，今天深入了解了下，发现官网给的例子非常好，这里来具体讲一下
