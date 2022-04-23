@@ -2,7 +2,7 @@
 title: vuex持久化简单实现
 date: 2022-04-21 17:16:03
 tags: [vuex,vue,vuex持久化]
-categories: [vuex, vue]
+categories: ['vuex']
 ---
 ## 需求
 
