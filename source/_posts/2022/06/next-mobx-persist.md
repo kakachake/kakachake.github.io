@@ -7,8 +7,6 @@ categories: [react, next]
 
 最近使用 next 构建一个项目，使用 mobx 来管理数据，并且做持久化。这里记录下遇到的问题
 
-## 持久化
-
 持久化使用的插件为[mobx-persist-store](https://github.com/quarrant/mobx-persist-store)
 首先是 storage 配置项，由于 nextjs 首先进行服务端渲染，所以并没有 window 对象，故配置的 localStorage 获取不到，当然这里在服务端页不需要获取，故我们可以通过**typeof 来判断 window 是否存在**，如果存在，则进行持久化操作，否则不进行持久化操作。
 核心代码为：
