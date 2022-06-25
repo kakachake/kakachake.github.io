@@ -1,8 +1,8 @@
 ---
 title: 在next中使用mobx并做持久化
 date: 2022-06-25 20:12:16
-tags:
-categories:
+tags: [react, next, mobx, persist],
+categories: [react, next]
 ---
 
 最近使用 next 构建一个项目，使用 mobx 来管理数据，并且做持久化。这里记录下遇到的问题
