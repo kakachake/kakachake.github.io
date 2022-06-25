@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>项目搭建规范 | Kakachake's blog</title><meta name="keywords" content="vue3,项目搭建"><meta name="author" content="Kaka Chake"><meta name="copyright" content="Kaka Chake"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一. 代码规范来自coderwhy老师">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目搭建规范">
+<meta property="og:url" content="http://kakachake.github.io/2022/04/15/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%A7%84%E8%8C%83/index.html">
+<meta property="og:site_name" content="Kakachake&#39;s blog">
+<meta property="og:description" content="一. 代码规范来自coderwhy老师">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://api.btstu.cn/sjbz/?lx=fengjing">
+<meta property="article:published_time" content="2022-04-15T14:31:27.000Z">
+<meta property="article:modified_time" content="2022-06-25T12:46:23.769Z">
+<meta property="article:author" content="Kaka Chake">
+<meta property="article:tag" content="vue3">
+<meta property="article:tag" content="项目搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://api.btstu.cn/sjbz/?lx=fengjing"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://kakachake.github.io/2022/04/15/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%A7%84%E8%8C%83/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '项目搭建规范',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-25 20:46:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Kakachake's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://avatars.githubusercontent.com/u/34683677" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kakachake's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">项目搭建规范</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-15T14:31:27.000Z" title="发表于 2022-04-15 22:31:27">2022-04-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-06-25T12:46:23.769Z" title="更新于 2022-06-25 20:46:23">2022-06-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/vue3/">vue3</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="项目搭建规范"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="一-代码规范"><a href="#一-代码规范" class="headerlink" title="一. 代码规范"></a>一. 代码规范</h2><p>来自coderwhy老师</p>
+<h3 id="1-1-集成editorconfig配置"><a href="#1-1-集成editorconfig配置" class="headerlink" title="1.1. 集成editorconfig配置"></a>1.1. 集成editorconfig配置</h3><p>EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://editorconfig.org</span></span><br><span class="line"></span><br><span class="line"><span class="string">root</span> <span class="string">=</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[<span class="string">*</span>] <span class="comment"># 表示所有文件适用</span></span><br><span class="line"><span class="string">charset</span> <span class="string">=</span> <span class="string">utf-8</span> <span class="comment"># 设置文件字符集为 utf-8</span></span><br><span class="line"><span class="string">indent_style</span> <span class="string">=</span> <span class="string">space</span> <span class="comment"># 缩进风格（tab | space）</span></span><br><span class="line"><span class="string">indent_size</span> <span class="string">=</span> <span class="number">2</span> <span class="comment"># 缩进大小</span></span><br><span class="line"><span class="string">end_of_line</span> <span class="string">=</span> <span class="string">lf</span> <span class="comment"># 控制换行类型(lf | cr | crlf)</span></span><br><span class="line"><span class="string">trim_trailing_whitespace</span> <span class="string">=</span> <span class="literal">true</span> <span class="comment"># 去除行首的任意空白字符</span></span><br><span class="line"><span class="string">insert_final_newline</span> <span class="string">=</span> <span class="literal">true</span> <span class="comment"># 始终在文件末尾插入一个新行</span></span><br><span class="line"></span><br><span class="line">[<span class="string">*.md</span>] <span class="comment"># 表示仅 md 文件适用以下规则</span></span><br><span class="line"><span class="string">max_line_length</span> <span class="string">=</span> <span class="string">off</span></span><br><span class="line"><span class="string">trim_trailing_whitespace</span> <span class="string">=</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>VSCode需要安装一个插件：EditorConfig for VS Code</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsq2gh989yj30pj05ggmb.jpg" alt="image-20210722215138665"></p>
+<h3 id="1-2-使用prettier工具"><a href="#1-2-使用prettier工具" class="headerlink" title="1.2. 使用prettier工具"></a>1.2. 使用prettier工具</h3><p>Prettier 是一款强大的代码格式化工具，支持 JavaScript、TypeScript、CSS、SCSS、Less、JSX、Angular、Vue、GraphQL、JSON、Markdown 等语言，基本上前端能用到的文件格式它都可以搞定，是当下最流行的代码格式化工具。</p>
+<p>1.安装prettier</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install prettier -D</span><br></pre></td></tr></table></figure>
+
+<p>2.配置.prettierrc文件：</p>
+<ul>
+<li>useTabs：使用tab缩进还是空格缩进，选择false；</li>
+<li>tabWidth：tab是空格的情况下，是几个空格，选择2个；</li>
+<li>printWidth：当行字符的长度，推荐80，也有人喜欢100或者120；</li>
+<li>singleQuote：使用单引号还是双引号，选择true，使用单引号；</li>
+<li>trailingComma：在多行输入的尾逗号是否添加，设置为 <code>none</code>；</li>
+<li>semi：语句末尾是否要加分号，默认值true，选择false表示不加；</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;useTabs&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tabWidth&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;printWidth&quot;</span><span class="punctuation">:</span> <span class="number">80</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;singleQuote&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;trailingComma&quot;</span><span class="punctuation">:</span> <span class="string">&quot;none&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;semi&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.创建.prettierignore忽略文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/dist/*</span><br><span class="line">.local</span><br><span class="line">.output.js</span><br><span class="line">/node_modules/**</span><br><span class="line"></span><br><span class="line">**/*.svg</span><br><span class="line">**/*.sh</span><br><span class="line"></span><br><span class="line">/public/*</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4.VSCode需要安装prettier的插件</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsq2acx21rj30ow057mxp.jpg" alt="image-20210722214543454"></p>
+<p>5.测试prettier是否生效</p>
+<ul>
+<li>测试一：在代码中保存代码；</li>
+<li>测试二：配置一次性修改的命令；</li>
+</ul>
+<p>在package.json中配置一个scripts：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;prettier&quot;</span><span class="punctuation">:</span> <span class="string">&quot;prettier --write .&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-3-使用ESLint检测"><a href="#1-3-使用ESLint检测" class="headerlink" title="1.3. 使用ESLint检测"></a>1.3. 使用ESLint检测</h3><p>1.在前面创建项目的时候，我们就选择了ESLint，所以Vue会默认帮助我们配置需要的ESLint环境。</p>
+<p>2.VSCode需要安装ESLint插件：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsq2oq26odj30pw05faaq.jpg" alt="image-20210722215933360"></p>
+<p>3.解决eslint和prettier冲突的问题：</p>
+<p>安装插件：（vue在创建项目时，如果选择prettier，那么这两个插件会自动安装）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i eslint-plugin-prettier eslint-config-prettier -D</span><br></pre></td></tr></table></figure>
+
+<p>添加prettier插件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">extends<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="string">&quot;plugin:vue/vue3-essential&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;eslint:recommended&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;@vue/typescript/recommended&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;@vue/prettier&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;@vue/prettier/@typescript-eslint&quot;</span><span class="punctuation">,</span></span><br><span class="line">  &#x27;plugin<span class="punctuation">:</span>prettier/recommended&#x27;</span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-4-git-Husky和eslint"><a href="#1-4-git-Husky和eslint" class="headerlink" title="1.4. git Husky和eslint"></a>1.4. git Husky和eslint</h3><p>虽然我们已经要求项目使用eslint了，但是不能保证组员提交代码之前都将eslint中的问题解决掉了：</p>
+<ul>
+<li><p>也就是我们希望保证代码仓库中的代码都是符合eslint规范的；</p>
+</li>
+<li><p>那么我们需要在组员执行 <code>git commit </code> 命令的时候对其进行校验，如果不符合eslint规范，那么自动通过规范进行修复；</p>
+</li>
+</ul>
+<p>那么如何做到这一点呢？可以通过Husky工具：</p>
+<ul>
+<li>husky是一个git hook工具，可以帮助我们触发git提交的各个阶段：pre-commit、commit-msg、pre-push</li>
+</ul>
+<p>如何使用husky呢？</p>
+<p>这里我们可以使用自动配置命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky-init &amp;&amp; npm install</span><br></pre></td></tr></table></figure>
+
+<p>这里会做三件事：</p>
+<p>1.安装husky相关的依赖：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqq0o5jxmj30bb04qwen.jpg" alt="image-20210723112648927"></p>
+<p>2.在项目目录下创建 <code>.husky</code> 文件夹：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx huksy install</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqq16zo75j307703mt8m.jpg" alt="image-20210723112719634"></p>
+<p>3.在package.json中添加一个脚本：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqq26phpxj30dj06fgm3.jpg" alt="image-20210723112817691"></p>
+<p>接下来，我们需要去完成一个操作：在进行commit时，执行lint脚本：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqq3hn229j30nf04z74q.jpg" alt="image-20210723112932943"></p>
+<p>这个时候我们执行git commit的时候会自动对代码进行lint校验。</p>
+<h3 id="1-5-git-commit规范"><a href="#1-5-git-commit规范" class="headerlink" title="1.5. git commit规范"></a>1.5. git commit规范</h3><h4 id="1-5-1-代码提交风格"><a href="#1-5-1-代码提交风格" class="headerlink" title="1.5.1. 代码提交风格"></a>1.5.1. 代码提交风格</h4><p>通常我们的git commit会按照统一的风格来提交，这样可以快速定位每次提交的内容，方便之后对版本进行控制。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqw17gaqjj30to0cj3zp.jpg"></p>
+<p>但是如果每次手动来编写这些是比较麻烦的事情，我们可以使用一个工具：Commitizen</p>
+<ul>
+<li>Commitizen 是一个帮助我们编写规范 commit message 的工具；</li>
+</ul>
+<p>1.安装Commitizen</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install commitizen -D</span><br></pre></td></tr></table></figure>
+
+<p>2.安装cz-conventional-changelog，并且初始化cz-conventional-changelog：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx commitizen init cz-conventional-changelog --save-dev --save-exact</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会帮助我们安装cz-conventional-changelog：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqvz2odi4j30ek00zmx2.jpg" alt="image-20210723145249096"></p>
+<p>并且在package.json中进行配置：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqvzftay5j30iu04k74d.jpg"></p>
+<p>这个时候我们提交代码需要使用 <code>npx cz</code>：</p>
+<ul>
+<li>第一步是选择type，本次更新的类型</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>feat</td>
+<td>新增特性 (feature)</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>修复 Bug(bug fix)</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>修改文档 (documentation)</td>
+</tr>
+<tr>
+<td>style</td>
+<td>代码格式修改(white-space, formatting, missing semi colons, etc)</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td>代码重构(refactor)</td>
+</tr>
+<tr>
+<td>perf</td>
+<td>改善性能(A code change that improves performance)</td>
+</tr>
+<tr>
+<td>test</td>
+<td>测试(when adding missing tests)</td>
+</tr>
+<tr>
+<td>build</td>
+<td>变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）</td>
+</tr>
+<tr>
+<td>ci</td>
+<td>更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等</td>
+</tr>
+<tr>
+<td>chore</td>
+<td>变更构建流程或辅助工具(比如更改测试环境)</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>代码回退</td>
+</tr>
+</tbody></table>
+<ul>
+<li>第二步选择本次修改的范围（作用域）</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqw8ca15oj30r600wmx4.jpg" alt="image-20210723150147510"></p>
+<ul>
+<li>第三步选择提交的信息</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqw8mq3zlj60ni01hmx402.jpg" alt="image-20210723150204780"></p>
+<ul>
+<li>第四步提交详细的描述信息</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqw8y05bjj30kt01fjrb.jpg" alt="image-20210723150223287"></p>
+<ul>
+<li>第五步是否是一次重大的更改</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqw9z5vbij30bm00q744.jpg" alt="image-20210723150322122"></p>
+<ul>
+<li>第六步是否影响某个open issue</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqwar8xp1j30fq00ya9x.jpg" alt="image-20210723150407822"></p>
+<p>我们也可以在scripts中构建一个命令来执行 cz：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsqwc4gtkxj30e207174t.jpg" alt="image-20210723150526211"></p>
+<h4 id="1-5-2-代码提交验证"><a href="#1-5-2-代码提交验证" class="headerlink" title="1.5.2. 代码提交验证"></a>1.5.2. 代码提交验证</h4><p>如果我们按照cz来规范了提交风格，但是依然有同事通过 <code>git commit</code> 按照不规范的格式提交应该怎么办呢？</p>
+<ul>
+<li>我们可以通过commitlint来限制提交；</li>
+</ul>
+<p>1.安装 @commitlint&#x2F;config-conventional 和 @commitlint&#x2F;cli</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i @commitlint/config-conventional @commitlint/cli -D</span><br></pre></td></tr></table></figure>
+
+<p>2.在根目录创建commitlint.config.js文件，配置commitlint</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&#x27;@commitlint/config-conventional&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.使用husky生成commit-msg文件，验证提交信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/commit-msg &quot;npx --no-install commitlint --edit $1&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二-第三方库集成"><a href="#二-第三方库集成" class="headerlink" title="二. 第三方库集成"></a>二. 第三方库集成</h2><h3 id="2-1-vue-config-js配置"><a href="#2-1-vue-config-js配置" class="headerlink" title="2.1. vue.config.js配置"></a>2.1. vue.config.js配置</h3><p>vue.config.js有三种配置方式：</p>
+<ul>
+<li>方式一：直接通过CLI提供给我们的选项来配置：<ul>
+<li>比如publicPath：配置应用程序部署的子目录（默认是 <code>/</code>，相当于部署在 <code>https://www.my-app.com/</code>）；</li>
+<li>比如outputDir：修改输出的文件夹；</li>
+</ul>
+</li>
+<li>方式二：通过configureWebpack修改webpack的配置：<ul>
+<li>可以是一个对象，直接会被合并；</li>
+<li>可以是一个函数，会接收一个config，可以通过config来修改配置；</li>
+</ul>
+</li>
+<li>方式三：通过chainWebpack修改webpack的配置：<ul>
+<li>是一个函数，会接收一个基于  <a target="_blank" rel="noopener" href="https://github.com/mozilla-neutrino/webpack-chain">webpack-chain</a> 的config对象，可以对配置进行修改；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">outputDir</span>: <span class="string">&#x27;./build&#x27;</span>,</span><br><span class="line">  <span class="comment">// configureWebpack: &#123;</span></span><br><span class="line">  <span class="comment">//   resolve: &#123;</span></span><br><span class="line">  <span class="comment">//     alias: &#123;</span></span><br><span class="line">  <span class="comment">//       views: &#x27;@/views&#x27;</span></span><br><span class="line">  <span class="comment">//     &#125;</span></span><br><span class="line">  <span class="comment">//   &#125;</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="comment">// configureWebpack: (config) =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   config.resolve.alias = &#123;</span></span><br><span class="line">  <span class="comment">//     &#x27;@&#x27;: path.resolve(__dirname, &#x27;src&#x27;),</span></span><br><span class="line">  <span class="comment">//     views: &#x27;@/views&#x27;</span></span><br><span class="line">  <span class="comment">//   &#125;</span></span><br><span class="line">  <span class="comment">// &#125;,</span></span><br><span class="line">  <span class="attr">chainWebpack</span>: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    config.<span class="property">resolve</span>.<span class="property">alias</span>.<span class="title function_">set</span>(<span class="string">&#x27;@&#x27;</span>, path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src&#x27;</span>)).<span class="title function_">set</span>(<span class="string">&#x27;views&#x27;</span>, <span class="string">&#x27;@/views&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2-2-vue-router集成"><a href="#2-2-vue-router集成" class="headerlink" title="2.2. vue-router集成"></a>2.2. vue-router集成</h3><p>安装vue-router的最新版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router@next</span><br></pre></td></tr></table></figure>
+
+<p>创建router对象：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHashHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">RouteRecordRaw</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">routes</span>: <span class="title class_">RouteRecordRaw</span>[] = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&#x27;/main&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/main&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../views/main/main.vue&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../views/login/login.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  routes,</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHashHistory</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+
+<p>安装router：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(router).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在App.vue中配置跳转：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/login&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/main&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-vuex集成"><a href="#2-3-vuex集成" class="headerlink" title="2.3. vuex集成"></a>2.3. vuex集成</h3><p>安装vuex：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex@next</span><br></pre></td></tr></table></figure>
+
+<p>创建store对象：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="title function_">createStore</span>(&#123;</span><br><span class="line">  <span class="title function_">state</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;coderwhy&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+
+<p>安装store：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(router).<span class="title function_">use</span>(store).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在App.vue中使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123; $store.state.name &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-4-element-plus集成"><a href="#2-4-element-plus集成" class="headerlink" title="2.4. element-plus集成"></a>2.4. element-plus集成</h3><p>Element Plus，一套为开发者、设计师和产品经理准备的基于 Vue 3.0 的桌面端组件库：</p>
+<ul>
+<li>相信很多同学在Vue2中都使用过element-ui，而element-plus正是element-ui针对于vue3开发的一个UI组件库；</li>
+<li>它的使用方式和很多其他的组件库是一样的，所以学会element-plus，其他类似于ant-design-vue、NaiveUI、VantUI都是差不多的；</li>
+</ul>
+<p>安装element-plus</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install element-plus</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-4-1-全局引入"><a href="#2-4-1-全局引入" class="headerlink" title="2.4.1. 全局引入"></a>2.4.1. 全局引入</h4><p>一种引入element-plus的方式是全局引入，代表的含义是所有的组件和插件都会被自动注册：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ElementPlus</span> <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-plus/lib/theme-chalk/index.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(router).<span class="title function_">use</span>(store).<span class="title function_">use</span>(<span class="title class_">ElementPlus</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-4-2-局部引入"><a href="#2-4-2-局部引入" class="headerlink" title="2.4.2. 局部引入"></a>2.4.2. 局部引入</h4><p>也就是在开发中用到某个组件对某个组件进行引入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;router-link to=&quot;/login&quot;&gt;登录&lt;/router-link&gt;</span><br><span class="line">    &lt;router-link to=&quot;/main&quot;&gt;首页&lt;/router-link&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h2&gt;&#123;&#123; $store.state.name &#125;&#125;&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">    &lt;el-button&gt;默认按钮&lt;/el-button&gt;</span><br><span class="line">    &lt;el-button type=&quot;primary&quot;&gt;主要按钮&lt;/el-button&gt;</span><br><span class="line">    &lt;el-button type=&quot;success&quot;&gt;成功按钮&lt;/el-button&gt;</span><br><span class="line">    &lt;el-button type=&quot;info&quot;&gt;信息按钮&lt;/el-button&gt;</span><br><span class="line">    &lt;el-button type=&quot;warning&quot;&gt;警告按钮&lt;/el-button&gt;</span><br><span class="line">    &lt;el-button type=&quot;danger&quot;&gt;危险按钮&lt;/el-button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; defineComponent &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">import &#123; ElButton &#125; from &#x27;element-plus&#x27;</span><br><span class="line"></span><br><span class="line">export default defineComponent(&#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    ElButton</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;less&quot;&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是我们会发现是没有对应的样式的，引入样式有两种方式：</p>
+<ul>
+<li>全局引用样式（像之前做的那样）；</li>
+<li>局部引用样式（通过babel的插件）；</li>
+</ul>
+<p>1.安装babel的插件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-plugin-import -D</span><br></pre></td></tr></table></figure>
+
+<p>2.配置babel.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&#x27;import&#x27;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">libraryName</span>: <span class="string">&#x27;element-plus&#x27;</span>,</span><br><span class="line">        <span class="attr">customStyleName</span>: <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="string">`element-plus/lib/theme-chalk/<span class="subst">$&#123;name&#125;</span>.css`</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&#x27;@vue/cli-plugin-babel/preset&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>但是这里依然有个弊端：</p>
+<ul>
+<li>这些组件我们在多个页面或者组件中使用的时候，都需要导入并且在components中进行注册；</li>
+<li>所以我们可以将它们在全局注册一次；</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  <span class="title class_">ElButton</span>,</span><br><span class="line">  <span class="title class_">ElTable</span>,</span><br><span class="line">  <span class="title class_">ElAlert</span>,</span><br><span class="line">  <span class="title class_">ElAside</span>,</span><br><span class="line">  <span class="title class_">ElAutocomplete</span>,</span><br><span class="line">  <span class="title class_">ElAvatar</span>,</span><br><span class="line">  <span class="title class_">ElBacktop</span>,</span><br><span class="line">  <span class="title class_">ElBadge</span>,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> components = [</span><br><span class="line">  <span class="title class_">ElButton</span>,</span><br><span class="line">  <span class="title class_">ElTable</span>,</span><br><span class="line">  <span class="title class_">ElAlert</span>,</span><br><span class="line">  <span class="title class_">ElAside</span>,</span><br><span class="line">  <span class="title class_">ElAutocomplete</span>,</span><br><span class="line">  <span class="title class_">ElAvatar</span>,</span><br><span class="line">  <span class="title class_">ElBacktop</span>,</span><br><span class="line">  <span class="title class_">ElBadge</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> cpn <span class="keyword">of</span> components) &#123;</span><br><span class="line">  app.<span class="title function_">component</span>(cpn.<span class="property">name</span>, cpn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-5-axios集成"><a href="#2-5-axios集成" class="headerlink" title="2.5. axios集成"></a>2.5. axios集成</h3><p>安装axios：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+
+<p>封装axios：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios, &#123; <span class="title class_">AxiosInstance</span>, <span class="title class_">AxiosRequestConfig</span>, <span class="title class_">AxiosResponse</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Result</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./types&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; useUserStore &#125; <span class="keyword">from</span> <span class="string">&#x27;/@/store/modules/user&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HYRequest</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="attr">instance</span>: <span class="title class_">AxiosInstance</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">readonly</span> <span class="attr">options</span>: <span class="title class_">AxiosRequestConfig</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">options: AxiosRequestConfig</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">options</span> = options</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">instance</span> = axios.<span class="title function_">create</span>(options)</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">instance</span>.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(</span><br><span class="line">      <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> token = <span class="title function_">useUserStore</span>().<span class="property">getToken</span></span><br><span class="line">        <span class="keyword">if</span> (token) &#123;</span><br><span class="line">          config.<span class="property">headers</span>.<span class="property">Authorization</span> = <span class="string">`Bearer <span class="subst">$&#123;token&#125;</span>`</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> config</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> err</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">instance</span>.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(</span><br><span class="line">      <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 拦截响应的数据</span></span><br><span class="line">        <span class="keyword">if</span> (res.<span class="property">data</span>.<span class="property">code</span> === <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> res.<span class="property">data</span>.<span class="property">data</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="property">data</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> err</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  request&lt;T = <span class="built_in">any</span>&gt;(<span class="attr">config</span>: <span class="title class_">AxiosRequestConfig</span>): <span class="title class_">Promise</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">instance</span></span><br><span class="line">        .<span class="property">request</span>&lt;<span class="built_in">any</span>, <span class="title class_">AxiosResponse</span>&lt;<span class="title class_">Result</span>&lt;T&gt;&gt;&gt;(config)</span><br><span class="line">        .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="title function_">resolve</span>((res <span class="keyword">as</span> <span class="built_in">unknown</span>) <span class="keyword">as</span> <span class="title class_">Promise</span>&lt;T&gt;)</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="title function_">catch</span>(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="title function_">reject</span>(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  get&lt;T = <span class="built_in">any</span>&gt;(<span class="attr">config</span>: <span class="title class_">AxiosRequestConfig</span>): <span class="title class_">Promise</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">request</span>(&#123; ...config, <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  post&lt;T = <span class="built_in">any</span>&gt;(<span class="attr">config</span>: <span class="title class_">AxiosRequestConfig</span>): <span class="title class_">Promise</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">request</span>(&#123; ...config, <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  patch&lt;T = <span class="built_in">any</span>&gt;(<span class="attr">config</span>: <span class="title class_">AxiosRequestConfig</span>): <span class="title class_">Promise</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">request</span>(&#123; ...config, <span class="attr">method</span>: <span class="string">&#x27;PATCH&#x27;</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">delete</span>&lt;T = <span class="built_in">any</span>&gt;(<span class="attr">config</span>: <span class="title class_">AxiosRequestConfig</span>): <span class="title class_">Promise</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">request</span>(&#123; ...config, <span class="attr">method</span>: <span class="string">&#x27;DELETE&#x27;</span> &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">HYRequest</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-6-VSCode配置"><a href="#2-6-VSCode配置" class="headerlink" title="2.6. VSCode配置"></a>2.6. VSCode配置</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;workbench.iconTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vscode-great-icons&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">17</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;eslint.migration.2_x&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;[javascript]&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;editor.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dbaeumer.vscode-eslint&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.autoSave&quot;</span><span class="punctuation">:</span> <span class="string">&quot;afterDelay&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.tabSize&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">16</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.renderWhitespace&quot;</span><span class="punctuation">:</span> <span class="string">&quot;all&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.quickSuggestions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;strings&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;debug.console.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">15</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window.zoomLevel&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;emmet.includeLanguages&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;javascript&quot;</span><span class="punctuation">:</span> <span class="string">&quot;javascriptreact&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;explorer.confirmDragAndDrop&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.tree.indent&quot;</span><span class="punctuation">:</span> <span class="number">16</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;javascript.updateImportsOnFileMove.enabled&quot;</span><span class="punctuation">:</span> <span class="string">&quot;always&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.wordWrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;on&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;path-intellisense.mappings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;@&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceRoot&#125;/src&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hediet.vscode-drawio.local-storage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YmFzaWM7YXJyb3dzMjtmbG93Y2hhcnQ7ZXI7c2l0ZW1hcDt1bWw7YnBtbjt3ZWJpY29uc1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiRkYwMDAwXCIsXCIwMENDNjZcIixcIm5vbmVcIixcIkNDRTVGRlwiLFwiNTI1MjUyXCIsXCJGRjMzMzNcIixcIjMzMzMzM1wiLFwiMzMwMDAwXCIsXCIwMENDQ0NcIixcIkZGNjZCM1wiLFwiRkZGRkZGMDBcIl0sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjExNjksXCJoZWlnaHRcIjoxNjU0fSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hediet.vscode-drawio.theme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Kennedy&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Source Code Pro, &#x27;Courier New&#x27;, monospace&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.smoothScrolling&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.formatOnSave&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbenp.prettier-vscode&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.colorTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Atom One Dark&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;vetur.completion.autoImport&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;security.workspace.trust.untrustedFiles&quot;</span><span class="punctuation">:</span> <span class="string">&quot;open&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;eslint.lintTask.enable&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;eslint.alwaysShowStatus&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.codeActionsOnSave&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;source.fixAll.eslint&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kaka Chake</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://kakachake.github.io/2022/04/15/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%A7%84%E8%8C%83/">http://kakachake.github.io/2022/04/15/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%A7%84%E8%8C%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://kakachake.github.io" target="_blank">Kakachake's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vue3/">vue3</a><a class="post-meta__tags" href="/tags/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">项目搭建</a></div><div class="post_share"><div class="social-share" data-image="https://api.btstu.cn/sjbz/?lx=fengjing" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/21/vuex%E6%8C%81%E4%B9%85%E5%8C%96%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/"><img class="prev-cover" src="https://api.btstu.cn/sjbz/?lx=fengjing" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">vuex持久化简单实现</div></div></a></div><div class="next-post pull-right"><a href="/2022/04/12/js%E7%9F%A5%E8%AF%86%E7%82%B9/"><img class="next-cover" src="https://api.btstu.cn/sjbz/?lx=fengjing" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">js知识点</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/01/compositionApi-3/" title="compositionApi-3"><img class="cover" src="https://api.btstu.cn/sjbz/?lx=dongman" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-01</div><div class="title">compositionApi-3</div></div></a></div><div><a href="/2022/04/01/h%E5%87%BD%E6%95%B0/" title="h函数"><img class="cover" src="https://api.btstu.cn/sjbz/?lx=fengjing" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-01</div><div class="title">h函数</div></div></a></div><div><a href="/2022/04/08/vue3-vuex-hooks/" title="在vue3中使用vuex——hooks调用"><img class="cover" src="https://api.btstu.cn/sjbz/?lx=dongman" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-08</div><div class="title">在vue3中使用vuex——hooks调用</div></div></a></div><div><a href="/2022/04/09/vue3-vuex-hooks%E3%80%90%E4%BA%8C%E3%80%91/" title="在vue3中使用vuex——hooks调用【二】"><img class="cover" src="https://api.btstu.cn/sjbz/?lx=dongman" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-09</div><div class="title">在vue3中使用vuex——hooks调用【二】</div></div></a></div><div><a href="/2022/04/02/vue%E7%AE%80%E6%98%93%E6%B8%B2%E6%9F%93%E5%99%A8%E5%AE%9E%E7%8E%B0/" title="vue简易渲染器实现"><img class="cover" src="https://api.btstu.cn/sjbz/?lx=dongman" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-02</div><div class="title">vue简易渲染器实现</div></div></a></div><div><a href="/2022/04/02/%E8%AE%A4%E8%AF%86Teleport/" title="认识Teleport"><img class="cover" src="https://api.btstu.cn/sjbz/?lx=suiji" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-02</div><div class="title">认识Teleport</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/34683677" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kaka Chake</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kakachake"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">一. 代码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%9B%86%E6%88%90editorconfig%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">1.1. 集成editorconfig配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BD%BF%E7%94%A8prettier%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.</span> <span class="toc-text">1.2. 使用prettier工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BD%BF%E7%94%A8ESLint%E6%A3%80%E6%B5%8B"><span class="toc-number">1.3.</span> <span class="toc-text">1.3. 使用ESLint检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-git-Husky%E5%92%8Ceslint"><span class="toc-number">1.4.</span> <span class="toc-text">1.4. git Husky和eslint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-git-commit%E8%A7%84%E8%8C%83"><span class="toc-number">1.5.</span> <span class="toc-text">1.5. git commit规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1-%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E9%A3%8E%E6%A0%BC"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.5.1. 代码提交风格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2-%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E9%AA%8C%E8%AF%81"><span class="toc-number">1.5.2.</span> <span class="toc-text">1.5.2. 代码提交验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E9%9B%86%E6%88%90"><span class="toc-number">2.</span> <span class="toc-text">二. 第三方库集成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-vue-config-js%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. vue.config.js配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-vue-router%E9%9B%86%E6%88%90"><span class="toc-number">2.2.</span> <span class="toc-text">2.2. vue-router集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-vuex%E9%9B%86%E6%88%90"><span class="toc-number">2.3.</span> <span class="toc-text">2.3. vuex集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-element-plus%E9%9B%86%E6%88%90"><span class="toc-number">2.4.</span> <span class="toc-text">2.4. element-plus集成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-%E5%85%A8%E5%B1%80%E5%BC%95%E5%85%A5"><span class="toc-number">2.4.1.</span> <span class="toc-text">2.4.1. 全局引入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-%E5%B1%80%E9%83%A8%E5%BC%95%E5%85%A5"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.4.2. 局部引入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-axios%E9%9B%86%E6%88%90"><span class="toc-number">2.5.</span> <span class="toc-text">2.5. axios集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-VSCode%E9%85%8D%E7%BD%AE"><span class="toc-number">2.6.</span> <span class="toc-text">2.6. VSCode配置</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/25/next-mobx-persist/" title="在next中使用mobx并做持久化"><img src="https://api.btstu.cn/sjbz/?lx=suiji" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在next中使用mobx并做持久化"/></a><div class="content"><a class="title" href="/2022/06/25/next-mobx-persist/" title="在next中使用mobx并做持久化">在next中使用mobx并做持久化</a><time datetime="2022-06-25T12:12:16.000Z" title="发表于 2022-06-25 20:12:16">2022-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/21/udemy-js-learn/" title="udemy_js_learn"><img src="https://api.btstu.cn/sjbz/?lx=suiji" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="udemy_js_learn"/></a><div class="content"><a class="title" href="/2022/05/21/udemy-js-learn/" title="udemy_js_learn">udemy_js_learn</a><time datetime="2022-05-21T13:07:59.000Z" title="发表于 2022-05-21 21:07:59">2022-05-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/21/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="面试笔记"><img src="https://api.btstu.cn/sjbz/?lx=fengjing" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面试笔记"/></a><div class="content"><a class="title" href="/2022/05/21/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" title="面试笔记">面试笔记</a><time datetime="2022-05-21T09:18:43.000Z" title="发表于 2022-05-21 17:18:43">2022-05-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/23/vuex%E4%B8%AD%E4%BD%BF%E7%94%A8typescript%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="vuex中使用typescript解决方案"><img src="https://api.btstu.cn/sjbz/?lx=suiji" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vuex中使用typescript解决方案"/></a><div class="content"><a class="title" href="/2022/04/23/vuex%E4%B8%AD%E4%BD%BF%E7%94%A8typescript%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="vuex中使用typescript解决方案">vuex中使用typescript解决方案</a><time datetime="2022-04-23T02:31:43.000Z" title="发表于 2022-04-23 10:31:43">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/21/vuex%E6%8C%81%E4%B9%85%E5%8C%96%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" title="vuex持久化简单实现"><img src="https://api.btstu.cn/sjbz/?lx=fengjing" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vuex持久化简单实现"/></a><div class="content"><a class="title" href="/2022/04/21/vuex%E6%8C%81%E4%B9%85%E5%8C%96%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" title="vuex持久化简单实现">vuex持久化简单实现</a><time datetime="2022-04-21T09:16:03.000Z" title="发表于 2022-04-21 17:16:03">2022-04-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Kaka Chake</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
