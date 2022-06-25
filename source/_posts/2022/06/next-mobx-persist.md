@@ -1,7 +1,7 @@
 ---
 title: 在next中使用mobx并做持久化
 date: 2022-06-25 20:12:16
-tags: [react, next, mobx, persist],
+tags: [react, next, mobx, persist]
 categories: [react, next]
 ---
 
